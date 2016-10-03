@@ -11,9 +11,3 @@ sudo apt-get install oracle-java8-installer -y
 sudo apt-get install maven -y
 cd ../../vagrant
 sudo mvn clean install
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install -y nodejs
-sudo npm install -g npm
-sudo npm install -g angular-cli
-cd frontend
-sudo npm install

@@ -27,6 +27,17 @@
       <artifactId>heroku-jdbc</artifactId>
       <version>0.1.1</version>
     </dependency>
+	<dependency>
+	   <groupId>org.hibernate</groupId>
+	   <artifactId>hibernate-core</artifactId>
+	   <version>5.2.3.Final</version>
+	</dependency>
+	<!-- SQLite JDBC library -->
+	<dependency>
+		<groupId>org.xerial</groupId>
+		<artifactId>sqlite-jdbc</artifactId>
+		<version>3.7.2</version>
+	</dependency>
   </dependencies>
   <build>
     <plugins>
