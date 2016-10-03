@@ -1,0 +1,7 @@
+.DS_STORE
+*.box
+.vagrant
+.bashrc
+
+*.gz
+/project/npm-debug.log
