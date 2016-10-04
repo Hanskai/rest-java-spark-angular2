@@ -1,13 +1,24 @@
-import { NavbarComponent } from './navbar/navbar.component';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AuthModalComponent } from './modals/auth-modal/auth-modal.component';
+import { ConfirmModalComponent } from './modals/confirm-modal/confirm-modal.component';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { AccessFrameComponent } from './pages/admin-page/access-frame/access-frame.component';
+import { UsersFrameComponent } from './pages/admin-page/users-frame/users-frame.component';
 
-export { NavbarComponent } from './navbar/navbar.component';
 export { AppComponent } from './app.component';
+export { NavbarComponent } from './navbar/navbar.component';
 export { HomePageComponent } from './pages/home-page/home-page.component';
 export { AuthModalComponent } from './modals/auth-modal/auth-modal.component';
+export { ConfirmModalComponent } from './modals/confirm-modal/confirm-modal.component';
+export { AdminPageComponent } from './pages/admin-page/admin-page.component';
+export { AccessFrameComponent } from './pages/admin-page/access-frame/access-frame.component';
+export { UsersFrameComponent } from './pages/admin-page/users-frame/users-frame.component';
 
 export default [
-    NavbarComponent, AppComponent, HomePageComponent, AuthModalComponent
+    AppComponent, NavbarComponent, 
+    HomePageComponent, AdminPageComponent, 
+    UsersFrameComponent, AccessFrameComponent,
+    AuthModalComponent, ConfirmModalComponent
 ]

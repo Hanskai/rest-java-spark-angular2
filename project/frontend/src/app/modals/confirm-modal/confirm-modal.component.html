@@ -8,20 +8,14 @@
                 <button type="button" class="close" aria-label="Close" (click)="close()">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">Authorization</h4>
+                <h4 class="modal-title">{{title}}</h4>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                    <label for="inputEmail">Email</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" [(ngModel)]="account.username">
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword">Password</label>
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" [(ngModel)]="account.password">
-                </div>
+                {{message}}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" (click)="login()">Login</button>
+                <button type="button" class="btn btn-default" (click)="close()">No</button>
+                <button type="button" class="btn btn-primary" (click)="yes()">Yes</button>
             </div>
         </div>
     </div>

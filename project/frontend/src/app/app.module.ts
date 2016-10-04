@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import AllComponents, { AppComponent } from './';
+import AllServices from './shared';
 import { FrontendRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -19,7 +20,9 @@ import { FrontendRoutingModule } from './app-routing.module';
     Ng2BootstrapModule,
     FrontendRoutingModule
   ],
-  providers: [],
+  providers: [
+    AllServices
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
