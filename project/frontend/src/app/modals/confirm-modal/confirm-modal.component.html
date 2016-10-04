@@ -10,13 +10,15 @@
                 </button>
                 <h4 class="modal-title">{{title}}</h4>
             </div>
-            <div class="modal-body">
-                {{message}}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" (click)="close()">No</button>
-                <button type="button" class="btn btn-primary" (click)="yes()">Yes</button>
-            </div>
+            <form (ngSubmit)="yes()">
+                <div class="modal-body">
+                    {{message}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" (click)="close()">No</button>
+                    <button type="submit" #focusElement class="btn btn-primary" autofocus>Yes</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

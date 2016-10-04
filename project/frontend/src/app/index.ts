@@ -6,6 +6,7 @@ import { ConfirmModalComponent } from './modals/confirm-modal/confirm-modal.comp
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AccessFrameComponent } from './pages/admin-page/access-frame/access-frame.component';
 import { UsersFrameComponent } from './pages/admin-page/users-frame/users-frame.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 export { AppComponent } from './app.component';
 export { NavbarComponent } from './navbar/navbar.component';
@@ -15,10 +16,12 @@ export { ConfirmModalComponent } from './modals/confirm-modal/confirm-modal.comp
 export { AdminPageComponent } from './pages/admin-page/admin-page.component';
 export { AccessFrameComponent } from './pages/admin-page/access-frame/access-frame.component';
 export { UsersFrameComponent } from './pages/admin-page/users-frame/users-frame.component';
+export { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 export default [
     AppComponent, NavbarComponent, 
     HomePageComponent, AdminPageComponent, 
+    ProfilePageComponent,
     UsersFrameComponent, AccessFrameComponent,
     AuthModalComponent, ConfirmModalComponent
 ]

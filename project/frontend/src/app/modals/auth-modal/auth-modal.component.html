@@ -10,19 +10,21 @@
                 </button>
                 <h4 class="modal-title">Authorization</h4>
             </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="inputEmail">Email</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" [(ngModel)]="account.username">
+            <form (ngSubmit)="login()">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="inputEmail">Email</label>
+                        <input type="text" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email" [(ngModel)]="account.username" #focusElement>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" [(ngModel)]="account.password">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="inputPassword">Password</label>
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" [(ngModel)]="account.password">
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Login</button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" (click)="login()">Login</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>

@@ -15,4 +15,16 @@ export class Account {
                 this.roles.push(new Role(role));
         }
     }
+
+    get isAdmin() {
+        return this.roles && this.roles.filter((role) => role.name === 'admin').length;
+    }
+    
+    get isUser() {
+        return this.roles && this.roles.filter((role) => role.name === 'user').length;
+    }
+
+    get isManager() {
+        return this.roles && this.roles.filter((role) => role.name === 'manager').length;
+    }
 }

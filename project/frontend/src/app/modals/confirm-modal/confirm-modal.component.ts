@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, ViewChild, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
 
 @Component({
@@ -18,6 +18,8 @@ export class ConfirmModalComponent implements OnInit {
 	class: string;
 	@ViewChild('modal')
 	modal: ModalDirective;
+	@ViewChild('focusElement')
+	focusElement: ElementRef;
 	@Output()
 	onYes: EventEmitter<ConfirmModalComponent>;
 	@Output()
@@ -46,5 +48,6 @@ export class ConfirmModalComponent implements OnInit {
 		if (!this.title)
 			this.title = this.text;
 		this.modal.onHidden.subscribe(() => this.close());
+		this.modal.onShown.subscribe(() => this.focusElement && this.focusElement.nativeElement.focus());
 	}
 }

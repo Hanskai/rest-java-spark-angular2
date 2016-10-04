@@ -1,6 +1,6 @@
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="<container-fluid></container-fluid>">
+  <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
         aria-controls="navbar">
@@ -16,11 +16,12 @@
         <li><a routerLink="/" routerLinkActive="active">Home</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a routerLink="/admin" routerLinkActive="active">Administration</a></li>
+        <li *ngIf="account && account.isAdmin"><a routerLink="/admin" routerLinkActive="active">Administrator</a></li>
+        <li *ngIf="account"><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
         <li *ngIf="!account">
           <auth-modal text="Login" (onLogin)="login($event)" [class]="'btn btn-link'"></auth-modal>
         </li>
-        <li>
+        <li *ngIf="account">
           <confirm-modal text="Logout" message="Are you sure you want to quit?" (onYes)="logout($event)" [class]="'btn btn-danger'"></confirm-modal>
         </li>
       </ul>
