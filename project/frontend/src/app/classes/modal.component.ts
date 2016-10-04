@@ -1,11 +1,6 @@
 import { Component, OnInit, Input, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
 
-@Component({
-	selector: 'auth-modal',
-	templateUrl: 'auth-modal.component.html'
-})
-
 export class ModalComponent implements OnInit {
 
 	@Input()
