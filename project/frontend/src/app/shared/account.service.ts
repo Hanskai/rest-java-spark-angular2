@@ -38,7 +38,7 @@ export class AccountService {
 
     logout() {
         this.account = null;
-        this.logout$.next(true);
+        setTimeout(() => this.logout$.next(true));
         return this.logout$;
     }
 }

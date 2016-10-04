@@ -31,7 +31,7 @@ export class ConfirmModalComponent implements OnInit {
 
 	close() {
 		this.onClose.emit(this);
-		if (this.hideOnClose && !this.modal.isShown)
+		if (this.hideOnClose && this.modal.isShown)
 			this.modal.hide();
 	}
 
