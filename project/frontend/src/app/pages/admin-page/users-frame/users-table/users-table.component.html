@@ -4,6 +4,7 @@
       <th class="col-id">{{userTitles.id}}</th>
       <th class="col-username">{{userTitles.username}}</th>
       <th class="col-password">{{userTitles.password}}</th>
+      <th class="col-roles">{{userTitles.roles}}</th>
       <th class="col-action">Actions</th>
     </tr>
   </thead>
@@ -12,6 +13,7 @@
       <td class="col-id">{{user.id}}</td>
       <td class="col-username">{{user.username}}</td>
       <td class="col-password">{{user.password}}</td>
+      <td class="col-roles">{{user.rolesAsString}}</td>
       <td class="col-action">
         <div class="btn-group">
           <button type="button" class="btn btn-default" aria-label="Edit">

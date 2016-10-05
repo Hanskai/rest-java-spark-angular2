@@ -5,22 +5,22 @@ export class User {
     username: string;
     password: string;
     roles: Role[];
-    static titles: any = { 
-        id: 'ID', 
-        username: 'Username', 
-        password: 'Password', 
-        roles: 'Roles' 
+    static titles: any = {
+        id: 'ID',
+        username: 'Username',
+        password: 'Password',
+        roles: 'Roles'
     };
     constructor(obj?: any) {
         if (obj) {
-            console.log(obj);
             this.id = +obj.id;
             this.username = obj.username;
             this.password = obj.password;
-            this.roles = [];
-            for (let role of obj.roles)
-                this.roles.push(new Role(role));
+            this.roles = obj.roles.map((role: any) => new Role(role));
         }
+    }
+    get rolesAsString() {
+        return this.roles.map((role: Role) => role.name).join(', ');
     }
 
     get isAdmin() {
