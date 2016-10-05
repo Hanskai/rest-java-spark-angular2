@@ -1,20 +1,27 @@
-<input *ngIf="config.filtering" placeholder="Filter"
-       [ngTableFiltering]="config.filtering"
-       (tableChanged)="onChangeTable(config)"/>
-
-<ng-table [config]="config.sorting"
-           (tableChanged)="onChangeTable(config)"
-           [rows]="rows" [columns]="columns">
-</ng-table>
-<pagination *ngIf="config.paging"
-            class="pagination-sm"
-            [(ngModel)]="page"
-            [totalItems]="length"
-            [itemsPerPage]="itemsPerPage"
-            [maxSize]="maxSize"
-            [boundaryLinks]="true"
-            [rotate]="false"
-            (pageChanged)="onChangeTable(config, $event)"
-            (numPages)="numPages = $event">
-</pagination>
-<pre *ngIf="config.paging" class="card card-block card-header">Page: {{page}} / {{numPages}}</pre>
+<table class="table table-bordered table-hover users-table">
+  <thead>
+    <tr>
+      <th class="col-id">{{userTitles.id}}</th>
+      <th class="col-username">{{userTitles.username}}</th>
+      <th class="col-password">{{userTitles.password}}</th>
+      <th class="col-action">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td class="col-id">{{user.id}}</td>
+      <td class="col-username">{{user.username}}</td>
+      <td class="col-password">{{user.password}}</td>
+      <td class="col-action">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default" aria-label="Edit">
+            <span class="glyphicon glyphicon-edit text-primary" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="btn btn-default" aria-label="Remove">
+            <span class="glyphicon glyphicon-trash text-danger" aria-hidden="true"></span>
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

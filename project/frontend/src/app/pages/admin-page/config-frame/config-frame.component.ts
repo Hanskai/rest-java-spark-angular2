@@ -6,6 +6,6 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ConfigFrameComponent implements OnInit {
-	title: string = 'Admin: Config';
+	private title: string = 'Admin: Config';
 	ngOnInit() { }
 }

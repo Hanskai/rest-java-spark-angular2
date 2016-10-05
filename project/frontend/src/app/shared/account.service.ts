@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, URLSearchParams } from '@angular/http';
-import { Account } from './../models/account.model';
+import { User } from './../models/user.model';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { AppService } from './app.service';
@@ -8,49 +8,42 @@ import { AppService } from './app.service';
 @Injectable()
 export class AccountService {
 
-    login$: Subject<Account>;
-    update$: Subject<Account>;
-    logout$: Subject<boolean>;
-    apiUrl: string;
-    account: Account;
+    account$: Subject<User>;
+    account: User;
+    private apiUrl: string;
 
     constructor(private http: Http, private app: AppService) {
         this.apiUrl = `${app.apiUrl}/account`;
-        this.login$ = <Subject<Account>>new Subject();
-        this.update$ = <Subject<Account>>new Subject();
-        this.logout$ = <Subject<boolean>>new Subject();
+        this.account$ = <Subject<User>>new Subject();
     }
 
-    login(account: Account) {
+    login(account: User) {
         this.http.get(`${this.apiUrl}?filter=${account.username}`)
-            .map(response => response.json().map(item => new Account(item))).subscribe(accounts => {
+            .map(response => response.json().map(item => new User(item))).subscribe((accounts: User[]) => {
                 try {
                     this.http.get(`${this.apiUrl}/${accounts[0].id}`)
                         //this.http.post(`${this.apiUrl}`, JSON.stringify(account))
-                        .map(response => response.json()).subscribe(item => {
-                            this.account = new Account(item);
-                            this.login$.next(this.account);
+                        .map(response => new User(response.json())).subscribe((user: User) => {
+                            this.account = user;
+                            this.account$.next(this.account);
                         }, error => console.error('Could not login.'));
                 } catch (error) {
                     console.error(error);
                 }
             }, error => console.error('Could not login.'));
-        return this.login$;
     }
 
     logout() {
         setTimeout(() => {
             this.account = null;
-            this.logout$.next(true);
+            this.account$.next(this.account);
         });
-        return this.logout$;
     }
 
-    update(account: Account) {
+    update(account: User) {
         setTimeout(() => {
             this.account = account;
-            this.update$.next(this.account);
+            this.account$.next(this.account);
         });
-        return this.update$;
     }
 }

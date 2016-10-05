@@ -1,6 +1,6 @@
 import { Component, Output, Input, ViewChild, EventEmitter } from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
-import { Account } from './../../models/account.model';
+import { User } from './../../models/user.model';
 import { ModalComponent } from './../../classes/modal.component';
 
 @Component({
@@ -26,11 +26,11 @@ export class AuthModalComponent extends ModalComponent {
 	@Output()
 	onLogin: EventEmitter<AuthModalComponent>;
 
-	account: Account;
+	account: User;
 
 	constructor() {
 		super();
-		this.account = new Account();
+		this.account = new User();
 		this.onLogin = new EventEmitter();
 	}
 

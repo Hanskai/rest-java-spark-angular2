@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './../shared/account.service';
 import { AuthModalComponent } from './../modals/auth-modal/auth-modal.component';
-import { Account } from './../models/account.model';
+import { User } from './../models/user.model';
 import { ConfirmModalComponent } from './../modals/confirm-modal/confirm-modal.component';
 
 @Component({
@@ -23,8 +23,8 @@ export class NavbarComponent implements OnInit {
 	}
 
 	login(authModal: AuthModalComponent) {
-		let subscribe = this.accountService.login(authModal.account).subscribe(
-			(account: Account) => {
+		let subscribe = this.accountService.account$.subscribe(
+			(account: User) => {
 				authModal.modal.hide();
 				subscribe.unsubscribe();
 			},
@@ -32,10 +32,11 @@ export class NavbarComponent implements OnInit {
 				subscribe.unsubscribe();
 			}
 		)
+		this.accountService.login(authModal.account);
 	}
 
 	logout(confirmModal: ConfirmModalComponent) {
-		let subscribe = this.accountService.logout().subscribe(
+		let subscribe = this.accountService.account$.subscribe(
 			() => {
 				confirmModal.modal.hide();
 				subscribe.unsubscribe();
@@ -44,5 +45,6 @@ export class NavbarComponent implements OnInit {
 				subscribe.unsubscribe();
 			}
 		)
+		this.accountService.logout();
 	}
 }
