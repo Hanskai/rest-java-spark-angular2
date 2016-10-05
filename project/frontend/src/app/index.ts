@@ -11,6 +11,7 @@ import { AccountPageComponent } from './pages/account-page/account-page.componen
 import { ProfileFrameComponent } from './pages/account-page/profile-frame/profile-frame.component';
 import { ConfigFrameComponent } from './pages/admin-page/config-frame/config-frame.component';
 import { AuditFrameComponent } from './pages/admin-page/audit-frame/audit-frame.component';
+import { UsersTableComponent } from './pages/admin-page/users-frame/users-table/users-table.component';
 
 export { AppComponent } from './app.component';
 
@@ -18,6 +19,6 @@ export default [
     AppComponent, NavbarComponent,  ErrorFrameComponent,
     HomePageComponent, 
     AccountPageComponent, ProfileFrameComponent,
-    AdminPageComponent, UsersFrameComponent, AccessFrameComponent, ConfigFrameComponent, AuditFrameComponent,
+    AdminPageComponent, UsersFrameComponent, AccessFrameComponent, ConfigFrameComponent, AuditFrameComponent, UsersTableComponent,
     AuthModalComponent, ConfirmModalComponent
 ]
