@@ -9,6 +9,7 @@ import { AppService } from './app.service';
 export class AccountService {
 
     login$: Subject<Account>;
+    update$: Subject<Account>;
     logout$: Subject<boolean>;
     apiUrl: string;
     account: Account;
@@ -16,15 +17,16 @@ export class AccountService {
     constructor(private http: Http, private app: AppService) {
         this.apiUrl = `${app.apiUrl}/account`;
         this.login$ = <Subject<Account>>new Subject();
+        this.update$ = <Subject<Account>>new Subject();
         this.logout$ = <Subject<boolean>>new Subject();
     }
 
-    login(user: Account) {
-        this.http.get(`${this.apiUrl}?filter=${user.username}`)
+    login(account: Account) {
+        this.http.get(`${this.apiUrl}?filter=${account.username}`)
             .map(response => response.json().map(item => new Account(item))).subscribe(accounts => {
                 try {
                     this.http.get(`${this.apiUrl}/${accounts[0].id}`)
-                        //this.http.post(`${this.apiUrl}`, JSON.stringify(user))
+                        //this.http.post(`${this.apiUrl}`, JSON.stringify(account))
                         .map(response => response.json()).subscribe(item => {
                             this.account = new Account(item);
                             this.login$.next(this.account);
@@ -37,8 +39,18 @@ export class AccountService {
     }
 
     logout() {
-        this.account = null;
-        setTimeout(() => this.logout$.next(true));
+        setTimeout(() => {
+            this.account = null;
+            this.logout$.next(true);
+        });
         return this.logout$;
+    }
+
+    update(account: Account) {
+        setTimeout(() => {
+            this.account = account;
+            this.update$.next(this.account);
+        });
+        return this.update$;
     }
 }
