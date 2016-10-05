@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-	selector: 'admin-page',
-	templateUrl: 'admin-page.component.html'
+	selector: 'account-page',
+	templateUrl: 'account-page.component.html'
 })
 
-export class AdminPageComponent implements OnInit {
-	title: string = 'Admin';
+export class AccountPageComponent implements OnInit {
+	title: string = 'Account';
 	constructor(private router: Router) {
 	}
 	ngOnInit() { }

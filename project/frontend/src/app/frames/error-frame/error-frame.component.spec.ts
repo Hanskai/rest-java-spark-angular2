@@ -1,22 +1,22 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { ProfilePageComponent } from './profile-page.component';
+import { ErrorFrameComponent } from './error-frame.component';
 
-describe('a profile-page component', () => {
-	let component: ProfilePageComponent;
+describe('a error-frame component', () => {
+	let component: ErrorFrameComponent;
 
 	// register all needed dependencies
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			providers: [
-				ProfilePageComponent
+				ErrorFrameComponent
 			]
 		});
 	});
 
 	// instantiation through framework injection
-	beforeEach(inject([ProfilePageComponent], (ProfilePageComponent) => {
-		component = ProfilePageComponent;
+	beforeEach(inject([ErrorFrameComponent], (ErrorFrameComponent) => {
+		component = ErrorFrameComponent;
 	}));
 
 	it('should have an instance', () => {

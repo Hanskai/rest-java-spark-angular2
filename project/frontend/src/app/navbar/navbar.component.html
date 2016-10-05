@@ -16,8 +16,8 @@
         <li><a routerLink="/" routerLinkActive="active">Home</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="account && account.isAdmin"><a routerLink="/admin" routerLinkActive="active">Administrator</a></li>
-        <li *ngIf="account"><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+        <li *ngIf="account && account.isAdmin"><a routerLink="/admin/users" routerLinkActive="active">Administrator</a></li>
+        <li *ngIf="account"><a routerLink="/account/profile" routerLinkActive="active">Profile</a></li>
         <li *ngIf="!account">
           <auth-modal text="Login" (onLogin)="login($event)" [class]="'btn btn-link'"></auth-modal>
         </li>

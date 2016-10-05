@@ -6,22 +6,18 @@ import { ConfirmModalComponent } from './modals/confirm-modal/confirm-modal.comp
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AccessFrameComponent } from './pages/admin-page/access-frame/access-frame.component';
 import { UsersFrameComponent } from './pages/admin-page/users-frame/users-frame.component';
-import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { ErrorFrameComponent } from './frames/error-frame/error-frame.component';
+import { AccountPageComponent } from './pages/account-page/account-page.component';
+import { ProfileFrameComponent } from './pages/account-page/profile-frame/profile-frame.component';
+import { ConfigFrameComponent } from './pages/admin-page/config-frame/config-frame.component';
+import { AuditFrameComponent } from './pages/admin-page/audit-frame/audit-frame.component';
 
 export { AppComponent } from './app.component';
-export { NavbarComponent } from './navbar/navbar.component';
-export { HomePageComponent } from './pages/home-page/home-page.component';
-export { AuthModalComponent } from './modals/auth-modal/auth-modal.component';
-export { ConfirmModalComponent } from './modals/confirm-modal/confirm-modal.component';
-export { AdminPageComponent } from './pages/admin-page/admin-page.component';
-export { AccessFrameComponent } from './pages/admin-page/access-frame/access-frame.component';
-export { UsersFrameComponent } from './pages/admin-page/users-frame/users-frame.component';
-export { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 export default [
-    AppComponent, NavbarComponent, 
-    HomePageComponent, AdminPageComponent, 
-    ProfilePageComponent,
-    UsersFrameComponent, AccessFrameComponent,
+    AppComponent, NavbarComponent,  ErrorFrameComponent,
+    HomePageComponent, 
+    AccountPageComponent, ProfileFrameComponent,
+    AdminPageComponent, UsersFrameComponent, AccessFrameComponent, ConfigFrameComponent, AuditFrameComponent,
     AuthModalComponent, ConfirmModalComponent
 ]

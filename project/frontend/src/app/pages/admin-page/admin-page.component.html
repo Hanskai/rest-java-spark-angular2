@@ -2,15 +2,21 @@
     <div class="row">
         <div class="col-sm-3 col-md-2">
             <ul class="nav nav-sidebar">
-                <li class="active">
-                    <a routerLink="/admin" routerLinkActive="active">Users</a>
+                <li [class.active]="router.isActive('/admin/users')">
+                    <a routerLink="/admin/users">Users</a>
                 </li>
-                <li>
-                    <a routerLink="/admin/access" routerLinkActive="active">Access</a>
+                <li [class.active]="router.isActive('/admin/access')">
+                    <a routerLink="/admin/access">Access</a>
+                </li>
+                <li [class.active]="router.isActive('/admin/config')">
+                    <a routerLink="/admin/config">Config</a>
+                </li>
+                <li [class.active]="router.isActive('/admin/audit')">
+                    <a routerLink="/admin/audit">Audit</a>
                 </li>
             </ul>
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+        <div class="col-sm-9 col-md-10">
             <router-outlet></router-outlet>
         </div>
     </div>
