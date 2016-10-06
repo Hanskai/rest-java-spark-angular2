@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HomePageComponent implements OnInit {
+
 	private title: string = 'Home';
 	private date: Date = new Date();
+	
 	ngOnInit() { }
 }

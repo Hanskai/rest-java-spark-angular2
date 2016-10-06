@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { AppService } from './app.service';
-import { User } from './../models/user.model';
+import { User } from './models/user.model';
 @Injectable()
 export class UsersService {
     items$: Subject<User[]>;
@@ -16,8 +16,8 @@ export class UsersService {
         this.items = [];
         this.items$ = <Subject<User[]>>new Subject();
     }
-    loadAll() {
-        this.http.get(`${this.apiUrl}`).map(response => response.json().map(item => new User(item))).subscribe((users: User[]) => {
+    loadAll(filter: string) {
+        this.http.get(`${this.apiUrl}?filter=${filter}`).map(response => response.json().map(item => new User(item))).subscribe((users: User[]) => {
             this.items = users;
             this.items$.next(this.items);
         }, error => console.error(error));
@@ -53,6 +53,12 @@ export class UsersService {
                 });
                 this.items$.next(this.items);
             }, error => console.error(error));
+    }
+    save(user: User){
+        if (user.id)
+            this.update(user);
+        else
+            this.create(user);
     }
     remove(userId: number) {
         this.http.delete(`${this.apiUrl}/${userId}`).subscribe(response => {

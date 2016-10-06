@@ -1,29 +1,52 @@
-<table class="table table-bordered table-hover users-table">
-  <thead>
-    <tr>
-      <th class="col-id">{{userTitles.id}}</th>
-      <th class="col-username">{{userTitles.username}}</th>
-      <th class="col-password">{{userTitles.password}}</th>
-      <th class="col-roles">{{userTitles.roles}}</th>
-      <th class="col-action">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users">
-      <td class="col-id">{{user.id}}</td>
-      <td class="col-username">{{user.username}}</td>
-      <td class="col-password">{{user.password}}</td>
-      <td class="col-roles">{{user.rolesAsString}}</td>
-      <td class="col-action">
-        <div class="btn-group">
-          <button type="button" class="btn btn-default" aria-label="Edit">
-            <span class="glyphicon glyphicon-edit text-primary" aria-hidden="true"></span>
+<div class="users-table">
+  <user-modal #createUserModal text="Create" title="Create new user" (onSave)="save($event)"></user-modal>
+  <user-modal #editUserModal text="Save" title="Edit user" (onSave)="save($event)"></user-modal>
+  <confirm-modal #removeUserModal text="Remove user" message="Are you sure you want to remove user?" (onYes)="remove($event)"
+    [hideButton]="true"></confirm-modal>
+  <div class="toolbar">
+    <div class="row">
+      <div class="col-md-6">
+        <button type="button" class="btn btn-primary" aria-label="Create" (click)="openModal(createUserModal)">
+          <span class="glyphicon glyphicon-plus"></span> Create
+        </button>
+      </div>
+      <div class="col-md-6">
+        <form (ngSubmit)="search()" class="form-inline pull-right">
+          <div class="form-group">
+            <input type="text" class="form-control" id="inputSearchText" name="inputSearchText" placeholder="Search text..." [(ngModel)]="searchText">
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th class="col-id">{{userTitles.id}}</th>
+        <th class="col-username">{{userTitles.username}}</th>
+        <th class="col-password">{{userTitles.password}}</th>
+        <th class="col-roles">{{userTitles.roles}}</th>
+        <th class="col-action">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td class="col-id">{{user.id}}</td>
+        <td class="col-username">{{user.username}}</td>
+        <td class="col-password">{{user.password}}</td>
+        <td class="col-roles">{{user.rolesAsString}}</td>
+        <td class="col-action">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default" aria-label="Edit" (click)="openModal(editUserModal, user)">
+            <span class="glyphicon glyphicon-edit text-primary"></span>
           </button>
-          <button type="button" class="btn btn-default" aria-label="Remove">
-            <span class="glyphicon glyphicon-trash text-danger" aria-hidden="true"></span>
+            <button type="button" class="btn btn-default" aria-label="Remove" (click)="openModal(removeUserModal, user)">
+            <span class="glyphicon glyphicon-trash text-danger"></span>
           </button>
-        </div>
-      </td>
-    </tr>
-  </tbody>
-</table>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

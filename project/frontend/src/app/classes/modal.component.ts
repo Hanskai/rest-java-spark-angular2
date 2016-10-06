@@ -10,7 +10,7 @@ export class ModalComponent implements OnInit {
 	@ViewChild('modal')
 	modal: ModalDirective;
 	@ViewChild('focusElement')
-	focusElement: any;
+	focusElement: ElementRef;
 	@Output()
 	onClose: EventEmitter<ModalComponent>;
 	@Input()
@@ -22,14 +22,15 @@ export class ModalComponent implements OnInit {
 		this.onClose = new EventEmitter();
 	}
 
+	ngOnInit() {
+		this.modal.onHidden.subscribe(() => this.close());
+		this.modal.onShown.subscribe(() => this.focusElement.nativeElement.focus());
+	}
+
 	close() {
 		this.onClose.emit(this);
 		if (this.hideOnClose && this.modal.isShown)
 			this.modal.hide();
-	}
-
-	ngOnInit() {
-		this.modal.onHidden.subscribe(() => this.close());
-		this.modal.onShown.subscribe(() => this.focusElement.nativeElement.focus());
+		return false;
 	}
 }

@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AccessFrameComponent implements OnInit {
+	
 	private title: string = 'Admin: Access';
+
 	ngOnInit() { }
 }

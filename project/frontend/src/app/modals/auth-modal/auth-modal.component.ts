@@ -1,6 +1,6 @@
-import { Component, Output, Input, ViewChild, EventEmitter } from '@angular/core';
+import { Component, Output, Input, ViewChild, EventEmitter, ElementRef } from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
-import { User } from './../../models/user.model';
+import { User } from './../../shared/models/user.model';
 import { ModalComponent } from './../../classes/modal.component';
 
 @Component({
@@ -17,7 +17,7 @@ export class AuthModalComponent extends ModalComponent {
 	@ViewChild('modal')
 	modal: ModalDirective;
 	@ViewChild('focusElement')
-	focusElement: any;
+	focusElement: ElementRef;
 	@Output()
 	onClose: EventEmitter<ModalComponent>;
 	@Input()
@@ -26,15 +26,21 @@ export class AuthModalComponent extends ModalComponent {
 	@Output()
 	onLogin: EventEmitter<AuthModalComponent>;
 
+	private userTitles: any = User.titles;
 	account: User;
 
 	constructor() {
 		super();
-		this.account = new User();
 		this.onLogin = new EventEmitter();
 	}
 
+	ngOnInit() {
+		super.ngOnInit();
+		this.account = new User();
+	}
+	
 	login() {
 		this.onLogin.emit(this);
+		return false;
 	}
 }

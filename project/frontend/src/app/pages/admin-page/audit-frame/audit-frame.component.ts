@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AuditFrameComponent implements OnInit {
+
 	private title: string = 'Admin: Audit';
+	
 	ngOnInit() { }
 }

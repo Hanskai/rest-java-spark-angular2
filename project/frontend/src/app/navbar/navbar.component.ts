@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './../shared/account.service';
 import { AuthModalComponent } from './../modals/auth-modal/auth-modal.component';
-import { User } from './../models/user.model';
+import { User } from './../shared/models/user.model';
 import { ConfirmModalComponent } from './../modals/confirm-modal/confirm-modal.component';
 
 @Component({

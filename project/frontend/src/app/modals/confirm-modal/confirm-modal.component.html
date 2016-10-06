@@ -1,4 +1,4 @@
-<a class="{{class}} navbar-button" (click)="modal.show()">{{text}}</a>
+<a class="{{class}} navbar-button" (click)="modal.show()" *ngIf="!hideButton">{{text}}</a>
 
 <div bsModal #modal="bs-modal" [config]="{backdrop:false}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
     aria-hidden="true">
@@ -16,7 +16,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" (click)="close()">No</button>
-                    <button type="submit" #focusElement class="btn btn-primary" autofocus>Yes</button>
+                    <button type="submit" #focusElement class="btn btn-primary">Yes</button>
                 </div>
             </form>
         </div>

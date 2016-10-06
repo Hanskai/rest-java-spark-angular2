@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 
 export class AccountPageComponent implements OnInit {
 	private title: string = 'User';
+
 	constructor(private router: Router) {
 	}
+	
 	ngOnInit() { }
 }

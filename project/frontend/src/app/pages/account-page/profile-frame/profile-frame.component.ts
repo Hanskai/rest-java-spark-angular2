@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './../../../models/user.model';
+import { User } from './../../../shared/models/user.model';
 import { AccountService } from './../../../shared/account.service';
 
 @Component({
@@ -11,11 +11,14 @@ export class ProfileFrameComponent implements OnInit {
 	private title: string = 'User: Profile';
 	private account: User;
 	private userTitles: any = User.titles;
+	
 	constructor(private accountService: AccountService) {
 		this.account = this.accountService.account;
 	}
+
 	ngOnInit() {
 	}
+
 	update() {
 		let subscribe = this.accountService.account$.subscribe(
 			(user: User) => {

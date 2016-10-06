@@ -16,7 +16,7 @@ export class ConfirmModalComponent extends ModalComponent {
 	@ViewChild('modal')
 	modal: ModalDirective;
 	@ViewChild('focusElement')
-	focusElement: any;
+	focusElement: ElementRef;
 	@Output()
 	onClose: EventEmitter<ModalComponent>;
 	@Input()
@@ -25,12 +25,15 @@ export class ConfirmModalComponent extends ModalComponent {
 	@Input()
 	title?: string;
 	@Input()
+	hideButton?: boolean;
+	@Input()
 	message: string;
 	@Output()
 	onYes: EventEmitter<ConfirmModalComponent>;
 
 	yes() {
 		this.onYes.emit(this);
+		return false;
 	}
 
 	constructor() {

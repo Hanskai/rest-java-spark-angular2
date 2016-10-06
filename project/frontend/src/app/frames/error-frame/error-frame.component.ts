@@ -9,5 +9,6 @@ export class ErrorFrameComponent implements OnInit {
 
 	@Input()
 	message:string;
+	
 	ngOnInit() { }
 }

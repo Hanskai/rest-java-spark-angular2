@@ -16,11 +16,11 @@ export class User {
             this.id = +obj.id;
             this.username = obj.username;
             this.password = obj.password;
-            this.roles = obj.roles.map((role: any) => new Role(role));
+            this.roles = obj.roles && obj.roles.length ? obj.roles.map((role: any) => new Role(role)) : [];
         }
     }
     get rolesAsString() {
-        return this.roles.map((role: Role) => role.name).join(', ');
+        return this.roles && this.roles.length ? this.roles.map((role: Role) => role.name).join(', ') : '';
     }
 
     get isAdmin() {

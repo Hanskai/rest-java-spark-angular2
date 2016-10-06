@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class UsersFrameComponent implements OnInit {
+
 	private title: string = 'Admin: Users';
+	
 	ngOnInit() { }
 }
