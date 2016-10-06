@@ -1,4 +1,4 @@
-<div bsModal #modal="bs-modal" [config]="{backdrop:false}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+<div bsModal #modal="bs-modal" [config]="{backdrop:false}" class="modal fade user-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -18,6 +18,12 @@
                     <div class="form-group">
                         <label for="inputPassword">{{userTitles.password}}</label>
                         <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password" [(ngModel)]="user.password">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">{{userTitles.roles}}</label>
+                        <label *ngFor="let role of roles" class="field-role">
+                            <input type="checkbox" [(ngModel)]="role.checked" [ngModelOptions]="{standalone: true}"/> {{role.name}}
+                        </label>
                     </div>
                 </div>
                 <div class="modal-footer">

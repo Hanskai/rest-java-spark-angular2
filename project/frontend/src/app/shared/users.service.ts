@@ -16,7 +16,9 @@ export class UsersService {
         this.items = [];
         this.items$ = <Subject<User[]>>new Subject();
     }
-    loadAll(filter: string) {
+    loadAll(filter?: string) {
+        if (!filter)
+            filter='';
         this.http.get(`${this.apiUrl}?filter=${filter}`).map(response => response.json().map(item => new User(item))).subscribe((users: User[]) => {
             this.items = users;
             this.items$.next(this.items);
